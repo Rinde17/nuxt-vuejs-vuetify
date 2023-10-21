@@ -68,11 +68,12 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./dist
-      - name: Tests
-        run: ${{ steps.detect-package-manager.outputs.manager }} run tests
+#      - name: Tests
+#        run: ${{ steps.detect-package-manager.outputs.manager }} run tests
 
   # Testing job
   test:
+    runs-on: ubuntu-latest
     needs:
     - build
     steps:
