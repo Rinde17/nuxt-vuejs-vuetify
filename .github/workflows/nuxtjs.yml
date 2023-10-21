@@ -71,12 +71,13 @@ jobs:
       - name: Tests
         run: ${{ steps.detect-package-manager.outputs.manager }} run tests
 
-#  # Testing job
-#  test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Tests
-#        run: npm run test
+  # Testing job
+  test:
+    needs:
+    - build
+    steps:
+      - name: Tests
+        run: ${{ steps.detect-package-manager.outputs.manager }} run tests
 
 #  # Deployment job
 #  deploy:
